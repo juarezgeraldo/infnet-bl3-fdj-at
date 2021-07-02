@@ -1,8 +1,5 @@
 package br.edu.infnet.appArtesanato.model.tests;
 
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import br.edu.infnet.appArtesanato.model.domain.*;
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
 import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
@@ -14,10 +11,8 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-//@SpringBootApplication
 public class AppArtesanatoTest {
     public static void main(String[] args) {
-//        SpringApplication.run(AppArtesanatoTest.class, args);
 
         String dir = System.getProperty("user.dir");
         String arq = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"))+".txt";
@@ -26,7 +21,7 @@ public class AppArtesanatoTest {
             try {
                 InputStream resource = new ClassPathResource("static/encomendas.txt").getInputStream();
 
-                FileWriter fileW = new FileWriter(dir + arq);
+                FileWriter fileW = new FileWriter(dir + "\\" + arq);
                 BufferedWriter escrita = new BufferedWriter(fileW);
 
                 BufferedReader leitura = new BufferedReader(new InputStreamReader(resource));

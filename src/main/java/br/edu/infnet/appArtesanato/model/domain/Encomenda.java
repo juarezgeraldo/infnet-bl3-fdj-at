@@ -21,8 +21,7 @@ public class Encomenda {
     }
 
     public String obterEncomenda() {
-        return String.format("Encomenda realizada por: %s - no dia: %s - Recebido pelo usuário: %s " +
-                "\n\r ===> %s",
+        return String.format("Realizada por: %s - Dia: %s - Usuário: %s ===> %s",
                 this.cliente.getNome(),
                 this.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
                 this.usuario.getNome(),

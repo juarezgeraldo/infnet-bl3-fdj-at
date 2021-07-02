@@ -83,7 +83,7 @@ public class ArtesanatoTest {
             System.out.println(e.getMessage());
         }
         try {
-            Bolsa bolsa3 = new Bolsa("Bolsa casual", 90.00F, false);
+            Bolsa bolsa3 = new Bolsa("Bolsa casual", 60.00F, false);
             bolsa3.setMaterial("Linha");
             bolsa3.setCor("Amarela");
             bolsa3.setDificuldade(2);
