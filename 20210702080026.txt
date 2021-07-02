@@ -1,8 +1,0 @@
-Realizada por: Cliente 01 - Dia: 02/07/2021 08:00 - Usuário: Usuario 01 ===> Pela Feira
-Brinco pingente;Idelma Criações;R$ 9,15
-Bolsa executiva;Outro fornecedor;R$ 155,25
-Vaso de plantas;Idelma Criações;R$ 29,21
-Realizada por: Cliente 02 - Dia: 02/07/2021 08:00 - Usuário: Usuario 01 ===> Pelo Telefone
-Anel aparador;Outro fornecedor;R$ 14,10
-Bolsa casual;Outro fornecedor;R$ 92,40
-Jogo de chá pintado;Idelma Criações;R$ 294,17
