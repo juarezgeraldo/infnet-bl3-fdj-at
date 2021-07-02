@@ -1,8 +1,11 @@
-package br.edu.infnet.encomenda.model.domain;
+package br.edu.infnet.appArtesanato.model.domain;
 
-import br.edu.infnet.encomenda.model.exceptions.DificuldadeBolsaZeradaException;
-import br.edu.infnet.encomenda.model.exceptions.QtdAcessorioZeradaOuNegativaException;
-import br.edu.infnet.encomenda.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
+import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
+import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;
+import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
+import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
+
+import java.text.DecimalFormat;
 
 public abstract class Artesanato {
     private String nome;
@@ -18,20 +21,22 @@ public abstract class Artesanato {
         this.proprio = proprio;
     }
 
-    public String selecionarItemArtesanato() throws QtdAcessorioZeradaOuNegativaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, DificuldadeBolsaZeradaException {
+    public String selecionarItemArtesanato() throws QtdAcessorioZeradaOuNegativaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, DificuldadeBolsaZeradaException, DivergenciaNosAcessorios {
+
+        DecimalFormat formato = new DecimalFormat("R$ #,##0.00");
 
         StringBuilder sb = new StringBuilder();
         sb.append(this.nome);
         sb.append(";");
         sb.append(this.proprio ? "Idelma Criações" : "Outro fornecedor");
         sb.append(";");
-        sb.append(this.calcularValorFinal());
+        sb.append(formato.format(this.calcularValorFinal()));
         sb.append("\r\n");
 
         return sb.toString();
     }
 
-    public abstract float calcularValorFinal() throws DificuldadeBolsaZeradaException;
+    public abstract float calcularValorFinal() throws DificuldadeBolsaZeradaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, QtdAcessorioZeradaOuNegativaException, DivergenciaNosAcessorios;
 
     @Override
     public String toString() {

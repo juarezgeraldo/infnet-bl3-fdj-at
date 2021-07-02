@@ -1,11 +1,18 @@
-package br.edu.infnet.encomenda.model.domain;
+package br.edu.infnet.appArtesanato.model.domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Encomenda {
     private LocalDateTime data;
     private boolean feira;
     private String observacao;
+    private Cliente cliente;
+    private Usuario usuario;
+
+    public Encomenda(){
+        this.data = LocalDateTime.now();
+    }
 
     public Encomenda(LocalDateTime data, boolean feira, String observacao) {
         this.data = data;
@@ -13,10 +20,21 @@ public class Encomenda {
         this.observacao = observacao;
     }
 
+    public String obterEncomenda() {
+        return String.format("Encomenda realizada por: %s - no dia: %s - Recebido pelo usuário: %s " +
+                "\n\r ===> %s",
+                this.cliente.getNome(),
+                this.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")),
+                this.usuario.getNome(),
+                this.feira ? "Pela Feira" : "Pelo Telefone");
+    }
+
     @Override
     public String toString() {
+        DateTimeFormatter dataFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
         StringBuilder sb = new StringBuilder();
-        sb.append(this.data);
+        sb.append(this.data.format(dataFormatada));
         sb.append(";");
         sb.append(this.feira ? "Pela Feira" : "Pelo Telefone");
         sb.append(";");
@@ -47,5 +65,21 @@ public class Encomenda {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

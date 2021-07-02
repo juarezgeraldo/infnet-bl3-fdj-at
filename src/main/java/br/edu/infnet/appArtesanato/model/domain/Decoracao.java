@@ -1,4 +1,6 @@
-package br.edu.infnet.encomenda.model.domain;
+package br.edu.infnet.appArtesanato.model.domain;
+
+import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
 
 public class Decoracao extends Artesanato{
     private String tipo;
@@ -17,8 +19,12 @@ public class Decoracao extends Artesanato{
     }
 
     @Override
-    public float calcularValorFinal() {
-        return 0;
+    public float calcularValorFinal() throws QtdPecasConjuntoDecoracaoZeradaOuNegativaException {
+        if(this.qtdPecasConjunto <= 0){
+            throw new QtdPecasConjuntoDecoracaoZeradaOuNegativaException("A quantidade de peças do conjunto está zerada ou negativa: " + this.qtdPecasConjunto);
+        }
+
+        return this.vidro ? this.qtdPecasConjunto * this.getValorBase() * 1.15F : this.qtdPecasConjunto * this.getValorBase();
     }
 
     @Override

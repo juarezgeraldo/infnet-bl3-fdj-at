@@ -1,0 +1,5 @@
+U;Usuario 01;usuario01@gmail.com;abc;N
+E;Feira;Cliente antigo;Cliente 01;cliente01@gmail.com;31-99999-9901
+A;Brinco pingente;5.30;Idelma Criações;Brinco;2;1.45
+B;Bolsa executiva;90.00;Outro fornecedor;Couro;Marrom;3;S
+D;Vaso de plantas;25.40;Idelma Criações;Vaso;1;S

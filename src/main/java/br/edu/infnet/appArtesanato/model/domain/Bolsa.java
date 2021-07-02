@@ -1,8 +1,6 @@
-package br.edu.infnet.encomenda.model.domain;
+package br.edu.infnet.appArtesanato.model.domain;
 
-import br.edu.infnet.encomenda.model.exceptions.DificuldadeBolsaZeradaException;
-
-import java.util.Locale;
+import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
 
 public class Bolsa extends Artesanato{
     private String material;
@@ -18,7 +16,7 @@ public class Bolsa extends Artesanato{
     public float calcularValorFinal() throws DificuldadeBolsaZeradaException {
 
         if (this.dificuldade == 0){
-            throw new DificuldadeBolsaZeradaException("A dificuldade para confecção da Bolsa está zerada. Impossível calcular valor final: ");
+            throw new DificuldadeBolsaZeradaException("A dificuldade para confecção da Bolsa está zerada. Impossível calcular valor final.");
         }
 
         float percentualAcrescentarMaterial;

@@ -1,9 +1,10 @@
-package br.edu.infnet.encomenda.model.domain;
+package br.edu.infnet.appArtesanato.model.domain;
 
 public class Cliente {
     private String nome;
     private String email;
     private String telefone;
+
 
     public Cliente(String nome, String email, String telefone) {
         this.nome = nome;
@@ -17,6 +18,8 @@ public class Cliente {
         sb.append(this.nome);
         sb.append(";");
         sb.append(this.email);
+        sb.append(";");
+        sb.append(this.telefone);
 
         return sb.toString();
     }
