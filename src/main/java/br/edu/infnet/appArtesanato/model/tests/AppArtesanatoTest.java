@@ -35,7 +35,7 @@ public class AppArtesanatoTest {
 
                     switch (campos[0].toUpperCase()) {
                         case "U":
-                            usuario = new Usuario(campos[1], campos[2], campos[3], "S".equalsIgnoreCase(campos[4]));
+//                            usuario = new Usuario(campos[1], campos[2], campos[3], "S".equalsIgnoreCase(campos[4]));
                             break;
 
                         case "E":

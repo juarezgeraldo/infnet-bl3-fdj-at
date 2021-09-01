@@ -1,13 +1,24 @@
 package br.edu.infnet.appArtesanato.model.domain;
 
-public class Usuario {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+//@SequenceGenerator(name = "idUsuarioCadastro")
+public class Usuario implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String email;
     private String senha;
     private boolean admin;
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "usuario_id")
+    private List<Artesanato> artesanatoList;
 
     public Usuario(){
-
     }
 
     public Usuario(String nome, String email, String senha, boolean admin) {
@@ -25,8 +36,15 @@ public class Usuario {
         sb.append(this.email);
         sb.append(";");
         sb.append(this.admin ? "Administrador" : "Usuário");
-
         return sb.toString();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -59,5 +77,13 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public List<Artesanato> getArtesanatoList() {
+        return artesanatoList;
+    }
+
+    public void setArtesanatoList(List<Artesanato> artesanatoList) {
+        this.artesanatoList = artesanatoList;
     }
 }

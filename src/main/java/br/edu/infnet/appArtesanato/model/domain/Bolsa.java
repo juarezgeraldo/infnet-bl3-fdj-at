@@ -2,12 +2,15 @@ package br.edu.infnet.appArtesanato.model.domain;
 
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
 
+import javax.persistence.Entity;
+
 public class Bolsa extends Artesanato{
     private String material;
     private String cor;
     private int dificuldade;
     private boolean comFecho;
 
+    public Bolsa(){}
     public Bolsa(String nome, float preco, boolean proprio) {
         super(nome, preco, proprio);
     }

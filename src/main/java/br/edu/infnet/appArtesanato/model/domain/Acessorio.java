@@ -3,10 +3,19 @@ package br.edu.infnet.appArtesanato.model.domain;
 import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Acessorio extends Artesanato {
+
     private String tipo;
     private int quantidade;
     private float desconto;
+
+    public Acessorio() {
+    }
 
     public Acessorio(String nome, float preco, boolean proprio) {
         super(nome, preco, proprio);
@@ -14,13 +23,13 @@ public class Acessorio extends Artesanato {
 
     @Override
     public float calcularValorFinal() throws QtdAcessorioZeradaOuNegativaException, DivergenciaNosAcessorios {
-        if(this.quantidade <= 0){
+        if (this.quantidade <= 0) {
             throw new QtdAcessorioZeradaOuNegativaException("Quantidade de acessórios está zerado ou negativo: " + this.quantidade);
         }
 
-        if ("brinco".equalsIgnoreCase(this.tipo) && this.quantidade != 2){
+        if ("brinco".equalsIgnoreCase(this.tipo) && this.quantidade != 2) {
             throw new DivergenciaNosAcessorios("Para brincos a quantidade deve ser igual a 2. A quantidade informada é " + this.quantidade);
-        }else if("anel".equalsIgnoreCase(this.tipo) && this.quantidade != 1){
+        } else if ("anel".equalsIgnoreCase(this.tipo) && this.quantidade != 1) {
             throw new DivergenciaNosAcessorios("Para aneis a quantidade deve ser igual a 1. A quantidade informada é " + this.quantidade);
         }
 
@@ -64,4 +73,6 @@ public class Acessorio extends Artesanato {
     public void setDesconto(float desconto) {
         this.desconto = desconto;
     }
+
+
 }

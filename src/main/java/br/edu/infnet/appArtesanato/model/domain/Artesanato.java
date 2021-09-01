@@ -4,13 +4,24 @@ import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaExcept
 import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
 import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
+import br.edu.infnet.appArtesanato.model.repository.ArtesanatoRepository;
 
+import javax.persistence.*;
 import java.text.DecimalFormat;
+import java.util.List;
 
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Artesanato {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private float valorBase;
     private boolean proprio;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public Artesanato(){
 
@@ -50,15 +61,43 @@ public abstract class Artesanato {
         return sb.toString();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public float getValorBase() {
         return valorBase;
     }
 
+    public void setValorBase(float valorBase) {
+        this.valorBase = valorBase;
+    }
+
     public boolean isProprio() {
         return proprio;
+    }
+
+    public void setProprio(boolean proprio) {
+        this.proprio = proprio;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
