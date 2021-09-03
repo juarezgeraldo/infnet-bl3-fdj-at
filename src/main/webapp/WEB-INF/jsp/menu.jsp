@@ -18,6 +18,12 @@
 							</a>
 						</li>
 						<li>
+							<a href="/bolsa/lista">
+								<span class="glyphicon glyphicon-lock"></span>
+								Bolsa
+							</a>
+						</li>
+						<li>
 							<a href="/usuario/lista">
 								<span class="glyphicon glyphicon-user"></span>
 								Usuário

@@ -3,14 +3,20 @@ package br.edu.infnet.appArtesanato.model.domain;
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Bolsa extends Artesanato{
+
     private String material;
     private String cor;
     private int dificuldade;
     private boolean comFecho;
 
-    public Bolsa(){}
+    public Bolsa(){
+    }
+
     public Bolsa(String nome, float preco, boolean proprio) {
         super(nome, preco, proprio);
     }
@@ -39,6 +45,9 @@ public class Bolsa extends Artesanato{
         }
         float percentualAcrescentarDificuldade;
         switch (this.dificuldade) {
+            case 0:
+                percentualAcrescentarDificuldade = 0.00F;
+                break;
             case 1:
                 percentualAcrescentarDificuldade = 0.30F;
                 break;

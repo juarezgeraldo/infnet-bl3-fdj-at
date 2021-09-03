@@ -8,6 +8,8 @@
 		</head>
 
 		<body>
+			<img src="logo.png"/>
+			<!-- <c:url value="/logo.png"></c:url> -->
 			<h1>Sistema de artesanato</h1>
 			<h5>Trabalho da disciplia de Java do Instituto Infnet</h5>
 			<h5>Professor: Elberth Moraes - Aluno: Juarez Geraldo da Silva Junior</h5>
